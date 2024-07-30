@@ -1,10 +1,10 @@
 OP_MAP = {
-        "add": lambda x, y: x + y,
-        "subtract": lambda x, y: x - y,
-        "multiply": lambda x, y: x * y,
-        "divide": lambda x, y: x / y,
-        "exp": lambda x, y: x ** y,
-        "greater": lambda x, y: "yes" if x > y else "no" ,
+    "add": lambda x, y: x + y,
+    "subtract": lambda x, y: x - y,
+    "multiply": lambda x, y: x * y,
+    "divide": lambda x, y: x / y,
+    "exp": lambda x, y: x ** y,
+    "greater": lambda x, y: "yes" if x > y else "no" ,
 }
 
 # A simple HTML table to use as context for the example
