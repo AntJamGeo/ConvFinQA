@@ -1,5 +1,11 @@
+import math
+import numbers
+import collections
+from dataclasses import dataclass
+
 from conversation_handler import ConversationHandler
 from client import Client
+from _consts import OP_MAP
 from _extra_typing import Entries, EntryKeyCollection
 
 class Tester:
@@ -18,8 +24,8 @@ class Tester:
         entries (Entries): A collection of entries
             to be tested, with a unique key for each that can be used
             access a specific entry.
-        conversations (Dict[EntryKey, Conversation]): The message
-            history of the each conversation, indexed by the entry's
+        conversations (Dict[EntryKey, ConversationHandler]): The
+            conversation handler for each entry, indexed by the entry's
             unique key.
     """
     def __init__(self, client: Client, entries: Entries):
@@ -105,3 +111,101 @@ class Tester:
                 print("----------------------------------------")
                 print(err)
             print("\n----------------------------------------\n")
+
+    def answer_accuracy(
+        self,
+        indices: EntryKeyCollection,
+        rel_tol: float = 0.01,
+        abs_tol: float = 0.0,
+    ):
+        accuracy = Accuracy()
+        for i in indices:
+            expecteds = self.entries[i]["exe_answers"]
+            gots = self.conversations[i].exe_answers
+            for expected, got in zip(expecteds, gots):
+                if self._equivalent_answers(expected, got, rel_tol, abs_tol):
+                    accuracy.score += 1
+                accuracy.total += 1
+        accuracy.calculate_acc()
+        return accuracy
+
+    def answer_accuracy_by_question_number(
+        self,
+        indices: EntryKeyCollection,
+        rel_tol: float = 0.01,
+        abs_tol: float = 0.0,
+    ):
+        accuracies = []
+        for i in indices:
+            expecteds = self.entries[i]["exe_answers"]
+            gots = self.conversations[i].exe_answers
+            for j, (expected, got) in enumerate(zip(expecteds, gots)):
+                if j == len(accuracies):
+                    accuracies.append(Accuracy())
+                if self._equivalent_answers(expected, got, rel_tol, abs_tol):
+                    accuracies[j].score += 1
+                accuracies[j].total += 1
+        for acc_item in accuracies:
+            acc_item.calculate_acc()
+        return accuracies
+
+    def answer_accuracy_by_question_type(
+        self,
+        indices: EntryKeyCollection,
+        rel_tol: float = 0.01,
+        abs_tol: float = 0.0,
+    ):
+        accuracies = {"retrieval": Accuracy(), "program": Accuracy()}
+        for i in indices:
+            is_ops = self.entries[i]["is_op"]
+            expecteds = self.entries[i]["exe_answers"]
+            gots = self.conversations[i].exe_answers
+            for expected, got, is_op  in zip(expecteds, gots, is_ops):
+                key = "program" if is_op else "retrieval"
+                if self._equivalent_answers(expected, got, rel_tol, abs_tol):
+                    accuracies[key].score += 1
+                accuracies[key].total += 1
+        for acc_item in accuracies.values():
+            acc_item.calculate_acc()
+        return accuracies
+
+    def answer_accuracy_by_operation(
+        self,
+        indices: EntryKeyCollection,
+        rel_tol: float = 0.01,
+        abs_tol: float = 0.0,
+    ):
+        accuracies = {op: Accuracy() for op in OP_MAP}
+        for i in indices:
+            expecteds = self.entries[i]["exe_answers"]
+            gots = self.conversations[i].exe_answers
+            is_ops = self.entries[i]["is_op"]
+            programs = self.entries[i]["answers"]
+            for expected, got, is_op, program  in zip(expecteds, gots, is_ops, programs):
+                if not is_op:
+                    continue
+                op = program.split("(")[0]
+                if self._equivalent_answers(expected, got, rel_tol, abs_tol):
+                    accuracies[op].score += 1
+                accuracies[op].total += 1
+        for acc_item in accuracies.values():
+            acc_item.calculate_acc()
+        return accuracies
+
+    def _equivalent_answers(self, expected, got, rel_tol, abs_tol):
+        if isinstance(expected, numbers.Number) and isinstance(got, numbers.Number):
+            return math.isclose(expected, got, rel_tol=rel_tol, abs_tol=abs_tol)
+        return expected == got
+
+    def program_accuracy(self, indices: EntryKeyCollection):
+        pass
+
+@dataclass
+class Accuracy:
+    score: int = 0
+    total: int = 0
+    accuracy: float = 0
+
+    def calculate_acc(self):
+        if self.total > 0:
+            self.accuracy = self.score / self.total
