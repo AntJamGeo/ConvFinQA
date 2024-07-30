@@ -8,20 +8,15 @@ class ConversationHandler:
     """A class for conversing with an LLM given some initial context.
 
     Args:
-        client (client.Client): A client that handles sending and
+        client (Client): A client that handles sending and
             receiving messages to and from an LLM.
         context (str): Some context to set the scene for the LLM so
             that it can refer back to it for question answering.
 
     Attributes:
-        client (client.Client): A client that handles sending and
+        client (Client): A client that handles sending and
             receiving messages to and from an LLM.
-        conversation (List[Dict[str, str]]): The message history of
-            the conversation.
-            Each entry in the list is a dict with two keys:
-                - "role": the agent who sent the message (this can
-                    either be the "user" or the LLM "assistant")
-                - "content": the content of the message
+        conversation (Conversation): The message history.
         answers (List[str]): A list of the responses from the LLM so
             far in the conversation. These can either be numbers or
             a description of an operation, in the form:
