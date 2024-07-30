@@ -1,5 +1,8 @@
+import math
+from typing import Tuple, Union
+
 from client import Client
-from _consts import INIT_MESSAGES, OP_MAP
+from _consts import INIT_MESSAGES, ASSISTANT_INITIAL_CONFIRMATION, OP_MAP
 
 class ConversationHandler:
     """A class for conversing with an LLM given some initial context.
@@ -23,10 +26,17 @@ class ConversationHandler:
             far in the conversation. These can either be numbers or
             a description of an operation, in the form:
                 operation(arg1, arg2)
+        extracted_answers (List[str]): The portion of each answer to
+            the right-hand side of the "=" sign, to allow for easy
+            comparison with answers as formatted in the dataset.
         exe_answers (List[float]): The executed versions of the each
             answer in answers.
         question_count (int): The number of questions asked by the
             user in the conversation so far.
+        err_log (List[str]): A list of messages from each error in the
+            conversation.
+        err_indices (List[int]): The indices of the questions where an
+            error occured.
     """
 
     def __init__(self, client: Client, context: str):
@@ -39,14 +49,17 @@ class ConversationHandler:
             },
             {
                 "role": "assistant",
-                "content": "Understood. And what are your questions? I will make sure to only answer with a number, or in the form operation(arg1, arg2)."
+                "content": ASSISTANT_INITIAL_CONFIRMATION
             },
         ])
         self.answers = []
+        self.extracted_answers = []
         self.exe_answers = []
         self.question_count = 0
+        self.err_log = []
+        self.err_indices = []
 
-    def ask(self, question: str) -> float:
+    def ask(self, question: str) -> Tuple[float, Union[None, str]]:
         """Ask the LLM a question based on the provided context.
 
         Args:
@@ -54,25 +67,29 @@ class ConversationHandler:
 
         Returns:
             answer (float): The executed answer.
-
-        Raises:
-            ConversationException: If there is an issue with the format
-                of the LLM's response, this will need to be handled
-                gracefully by taking care of any ConversationException
-                raised.
+            error (Union[None, str]): An error message if there was a
+                problem handling the request.
         """
-
         # Add the provided question to the conversation, prefixed with
         # a question index to allow the LLM to more easily refer to
-        # specific answers
+        # specific answers, as well as the calculated value of the last
+        # question's response
+        if self.exe_answers and not math.isnan(self.exe_answers[-1]):
+            prefix = f"Ok, so ANS{self.question_count-1} = {self.exe_answers[-1]}. Now the next question:\n"
+        else:
+            prefix = ""
         self.conversation.append({
             "role": "user",
-            "content": f"Q{self.question_count}: {question}"
+            "content": f"{prefix}Q{self.question_count}: {question}"
         })
 
         # An answer will be generated in a "raw" form that will then
         # need to be processed to get a real output
-        answer = self.client.generate(self.conversation)
+        try:
+            answer = self.client.generate(self.conversation)
+        except Exception as e:
+            self._log_new_error("N/A", e)
+            return float("nan"), self.err_log[-1]
         
         # Add the response in "raw" form to the conversation to keep
         # the conversation history up-to-date so that the LLM can
@@ -82,15 +99,24 @@ class ConversationHandler:
             "content": answer
         })
         self.question_count += 1
-        
-        answer = self._extract_raw_answer(answer)
         self.answers.append(answer)
-        exe_answer = self._execute_answer(answer)
+
+        # Attempt to process the generated answer
+        try:
+            extracted_answer = self._extract_raw_answer(answer)
+            exe_answer = self._execute_answer(extracted_answer)
+            error = None
+        except Exception as e:
+            self._log_new_error(answer, e)
+            extracted_answer = "n/a"
+            exe_answer = float("nan")
+            error = self.err_log[-1]
+
+        self.extracted_answers.append(extracted_answer)
         self.exe_answers.append(exe_answer)
+        return exe_answer, error
 
-        return self.exe_answers[-1]
-
-    def _extract_raw_answer(answer: str) -> str:
+    def _extract_raw_answer(self, answer: str) -> str:
         """Extract the raw answer from the LLM response.
 
         The answer from the LLM should be in the form:
@@ -118,8 +144,8 @@ class ConversationHandler:
         present, and process the arguments to get the final answer.
         """
         try:
-            return float(answer)
-        except ValueError:
+            return self._process_arg(answer)
+        except ArgumentException:
             pass
 
         if "(" not in answer:
@@ -132,7 +158,7 @@ class ConversationHandler:
             raise FormatException(
                 "Non-float answer should be an operation of the form "
                 "\"operation(arg1, arg2)\", but got the following: "
-                f"{op_and_args}"
+                f"{answer}"
             )
 
         op, args = op_and_args
@@ -164,33 +190,61 @@ class ConversationHandler:
         return exe_answer
 
     def _process_arg(self, arg):
-        arg = arg.strip()
+        """Process the provided argument.
+
+        First remove all spaces, and then check if the argument is a
+        reference to another answer (in which case, it starts with
+        "ANS"), or is a numerical value. If it is a percentage, we
+        have to also divide by 100.
+        """
+        arg = arg.replace(" ", "")
         try:
             if arg.startswith("ANS"):
                 answer_index = int(arg[3:])
                 processed_arg = self.exe_answers[answer_index]
+                if math.isnan(processed_arg):
+                    raise ArgumentException(
+                        "Operation requires use of nan value"
+                    )
             else:
-                processed_arg = float(arg)
+                arg = arg.replace(",", "")
+                arg = arg.replace("$", "")
+                if arg.endswith("%"):
+                    processed_arg = float(arg[:-1]) / 100
+                else:
+                    processed_arg = float(arg)
+        except ArgumentException as e:
+            raise e
         except Exception as e:
             raise ArgumentException(
                 f"Error processing the argument \"{arg}\": {e}"
             )
         return processed_arg
         
+    def _log_new_error(self, answer, error):
+        self.err_log.append(
+            f"Question {self.question_count}: Answer {answer}\nError: {error}"
+        )
+        self.err_indices.append(self.question_count)
+
 
 class ConversationException(Exception):
     def __init__(self, message):
         super().__init__(message)
         self.message = message
 
-class FormatException(ConversationException):
+class AnswerException(ConversationException):
     def __init__(self, message):
         super().__init__(message)
 
-class OperationException(ConversationException):
+class FormatException(AnswerException):
     def __init__(self, message):
         super().__init__(message)
 
-class ArgumentException(ConversationException):
+class OperationException(AnswerException):
+    def __init__(self, message):
+        super().__init__(message)
+
+class ArgumentException(AnswerException):
     def __init__(self, message):
         super().__init__(message)
