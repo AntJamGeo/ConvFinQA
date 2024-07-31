@@ -6,7 +6,7 @@
             "35",
             "33",
             "subtract(35, 33)",
-            "add(35, 33)\ndivide(#0, const_2)"
+            "add(35, 33);divide(#0, const_2)"
         ],
         "dialogue_break": [
             "what was, in millions the total of commercial mortgage recourse obligations in the end of 2014?",
@@ -27,7 +27,7 @@
         "answers": [
             "multiply(1.9, 1000)",
             "divide(ANS0, 2940)",
-            "multiply(2, 1000)\ndivide(#0, 3403)"
+            "multiply(2, 1000);divide(#0, 3403)"
         ],
         "dialogue_break": [
             "in 2015, what was the amount of the north american consumer packaging net sales, in millions?",
@@ -46,7 +46,7 @@
         "answers": [
             "subtract(100, 77)",
             "add(1, 2)",
-            "add(ANS1, 2)\ndivide(#0, 2)"
+            "add(ANS1, 2);divide(#0, 2)"
         ],
         "dialogue_break": [
             "what was the net change in the unrecognized tax during 2010?",
@@ -64,7 +64,7 @@
         "context": "note 9 2014 benefit plans the company has defined benefit pension plans covering certain employees in the united states and certain international locations . postretirement healthcare and life insurance benefits provided to qualifying domestic retirees as well as other postretirement benefit plans in international countries are not material . the measurement date used for the company 2019s employee benefit plans is september 30 . effective january 1 , 2018 , the legacy u.s . pension plan was frozen to limit the participation of employees who are hired or re-hired by the company , or who transfer employment to the company , on or after january 1 , net pension cost for the years ended september 30 included the following components: . <table class='wikitable'><tr><td>1</td><td>( millions of dollars )</td><td>pension plans 2019</td><td>pension plans 2018</td><td>pension plans 2017</td></tr><tr><td>2</td><td>service cost</td><td>$ 134</td><td>$ 136</td><td>$ 110</td></tr><tr><td>3</td><td>interest cost</td><td>107</td><td>90</td><td>61</td></tr><tr><td>4</td><td>expected return on plan assets</td><td>( 180 )</td><td>( 154 )</td><td>( 112 )</td></tr><tr><td>5</td><td>amortization of prior service credit</td><td>( 13 )</td><td>( 13 )</td><td>( 14 )</td></tr><tr><td>6</td><td>amortization of loss</td><td>78</td><td>78</td><td>92</td></tr><tr><td>7</td><td>settlements</td><td>10</td><td>2</td><td>2014</td></tr><tr><td>8</td><td>net pension cost</td><td>$ 135</td><td>$ 137</td><td>$ 138</td></tr><tr><td>9</td><td>net pension cost included in the preceding table that is attributable to international plans</td><td>$ 32</td><td>$ 34</td><td>$ 43</td></tr></table> net pension cost included in the preceding table that is attributable to international plans $ 32 $ 34 $ 43 the amounts provided above for amortization of prior service credit and amortization of loss represent the reclassifications of prior service credits and net actuarial losses that were recognized in accumulated other comprehensive income ( loss ) in prior periods . the settlement losses recorded in 2019 and 2018 primarily included lump sum benefit payments associated with the company 2019s u.s . supplemental pension plan . the company recognizes pension settlements when payments from the supplemental plan exceed the sum of service and interest cost components of net periodic pension cost associated with this plan for the fiscal year . as further discussed in note 2 , upon adopting an accounting standard update on october 1 , 2018 , all components of the company 2019s net periodic pension and postretirement benefit costs , aside from service cost , are recorded to other income ( expense ) , net on its consolidated statements of income , for all periods presented . notes to consolidated financial statements 2014 ( continued ) becton , dickinson and company .",
         "answers": [
             "divide(110, 61)",
-            "add(135, 137)\nadd(#0, 138)",
+            "add(135, 137);add(#0, 138)",
             "divide(ANS1, 3)"
         ],
         "dialogue_break": [
@@ -85,7 +85,7 @@
             "21.7",
             "14.5",
             "divide(21.7, 14.5)",
-            "add(14.5, 8.8)\nadd(#0, 8.0)\nadd(#1, 8.3)\nadd(#2, 7.8)",
+            "add(14.5, 8.8);add(#0, 8.0);add(#1, 8.3);add(#2, 7.8)",
             "subtract(ANS3, 36.7)"
         ],
         "dialogue_break": [
@@ -109,7 +109,7 @@
         "answers": [
             "multiply(20000, 50.50)",
             "20000",
-            "add(20000, 15000)\ndivide(#0, 2)"
+            "add(20000, 15000);divide(#0, 2)"
         ],
         "dialogue_break": [
             "based on the average exercise price displayed on the list, what was the full value of the put options purchased?",
@@ -129,7 +129,7 @@
             "subtract(92.3, 84.9)",
             "84.9",
             "divide(ANS0, 84.9)",
-            "divide(79789, 1000)\nsubtract(#0, 92.3)",
+            "divide(79789, 1000);subtract(#0, 92.3)",
             "divide(ANS3, 92.3)"
         ],
         "dialogue_break": [
@@ -154,7 +154,7 @@
             "1.9",
             "multiply(1.9, 1000)",
             "divide(ANS1, 5031)",
-            "multiply(2.1, 1000)\ndivide(#0, 5720)"
+            "multiply(2.1, 1000);divide(#0, 5720)"
         ],
         "dialogue_break": [
             "what was the total of north american printing papers net sales in 2015, in billions?",
@@ -177,7 +177,7 @@
             "add(20616, 6847)",
             "add(ANS0, ANS1)",
             "divide(6847, ANS2)",
-            "add(71063, 21604)\nadd(82, #0)",
+            "add(71063, 21604);add(82, #0)",
             "divide(21604, ANS4)"
         ],
         "dialogue_break": [
@@ -204,7 +204,7 @@
             "12508023",
             "57669746",
             "divide(ANS0, ANS1)",
-            "divide(ANS1, 1000000)\nmultiply(#0, 143.70)"
+            "divide(ANS1, 1000000);multiply(#0, 143.70)"
         ],
         "dialogue_break": [
             "what was the number of shares repurchased in the last quarter of 2018?",
@@ -227,7 +227,7 @@
             "0.03605",
             "multiply(ANS0, ANS1)",
             "divide(ANS2, 4)",
-            "add(5, 10)\nadd(#0, #0)"
+            "add(5, 10);add(#0, #0)"
         ],
         "dialogue_break": [
             "on june 23, 2008, what was the amount of the five year term loan to fund a portion of the acquisition?",
@@ -249,7 +249,7 @@
         "context": "devon energy corporation and subsidiaries notes to consolidated financial statements 2014 ( continued ) proved undeveloped reserves the following table presents the changes in our total proved undeveloped reserves during 2011 ( in mmboe ) . . <table class='wikitable'><tr><td>1</td><td></td><td>u.s . onshore</td><td>canada</td><td>north america</td></tr><tr><td>2</td><td>proved undeveloped reserves as of december 31 2010</td><td>411</td><td>420</td><td>831</td></tr><tr><td>3</td><td>extensions and discoveries</td><td>118</td><td>30</td><td>148</td></tr><tr><td>4</td><td>revisions due to prices</td><td>-2 ( 2 )</td><td>-14 ( 14 )</td><td>-16 ( 16 )</td></tr><tr><td>5</td><td>revisions other than price</td><td>-56 ( 56 )</td><td>5</td><td>-51 ( 51 )</td></tr><tr><td>6</td><td>conversion to proved developed reserves</td><td>-68 ( 68 )</td><td>-62 ( 62 )</td><td>-130 ( 130 )</td></tr><tr><td>7</td><td>proved undeveloped reserves as of december 31 2011</td><td>403</td><td>379</td><td>782</td></tr></table> at december 31 , 2011 , devon had 782 mmboe of proved undeveloped reserves . this represents a 6% ( 6 % ) decrease as compared to 2010 and represents 26% ( 26 % ) of its total proved reserves . drilling activities increased devon 2019s proved undeveloped reserves 148 mmboe and resulted in the conversion of 130 mmboe , or 16% ( 16 % ) , of the 2010 proved undeveloped reserves to proved developed reserves . additionally , revisions other than price decreased devon 2019s proved undeveloped reserves 51 mmboe primarily due to its evaluation of certain u.s . onshore dry-gas areas , which it does not expect to develop in the next five years . the largest revisions relate to the dry-gas areas at carthage in east texas and the barnett shale in north texas . a significant amount of devon 2019s proved undeveloped reserves at the end of 2011 largely related to its jackfish operations . at december 31 , 2011 and 2010 , devon 2019s jackfish proved undeveloped reserves were 367 mmboe and 396 mmboe , respectively . development schedules for the jackfish reserves are primarily controlled by the need to keep the processing plants at their 35000 barrel daily facility capacity . processing plant capacity is controlled by factors such as total steam processing capacity , steam-oil ratios and air quality discharge permits . as a result , these reserves are classified as proved undeveloped for more than five years . currently , the development schedule for these reserves extends though the year 2025 . price revisions 2011 2014reserves decreased 21 mmboe due to lower gas prices and higher oil prices . the higher oil prices increased devon 2019s canadian royalty burden , which reduced devon 2019s oil reserves . 2010 2014reserves increased 72 mmboe due to higher gas prices , partially offset by the effect of higher oil prices . the higher oil prices increased devon 2019s canadian royalty burden , which reduced devon 2019s oil reserves . of the 72 mmboe price revisions , 43 mmboe related to the barnett shale and 22 mmboe related to the rocky mountain area . 2009 2014reserves increased 177 mmboe due to higher oil prices , partially offset by lower gas prices . the increase in oil reserves primarily related to devon 2019s jackfish thermal heavy oil reserves in canada . at the end of 2008 , 331 mmboe of reserves related to jackfish were not considered proved . however , due to higher prices , these reserves were considered proved as of december 31 , 2009 . significantly lower gas prices caused devon 2019s reserves to decrease 116 mmboe , which primarily related to its u.s . reserves . revisions other than price total revisions other than price for 2011 primarily related to devon 2019s evaluation of certain dry gas regions noted in the proved undeveloped reserves discussion above . total revisions other than price for 2010 and 2009 primarily related to devon 2019s drilling and development in the barnett shale. .",
         "answers": [
             "379",
-            "subtract(379, ANS0)\ndivide(#0, 420)",
+            "subtract(379, ANS0);divide(#0, 420)",
             "subtract(403, 411)",
             "divide(ANS2, 411)"
         ],
@@ -272,7 +272,7 @@
         "answers": [
             "multiply(11.9, 1000000)",
             "divide(3219192, ANS0)",
-            "multiply(2.2, 1000000)\ndivide(666415, #0)"
+            "multiply(2.2, 1000000);divide(666415, #0)"
         ],
         "dialogue_break": [
             "as of december 31, 2014, what was the total estimated population served?",
@@ -290,7 +290,7 @@
         "context": "table of contents part ii , item 8 schlumberger limited ( schlumberger n.v. , incorporated in the netherlands antilles ) and subsidiary companies shares of common stock issued treasury shares outstanding . <table class='wikitable'><tr><td>1</td><td></td><td>issued</td><td>in treasury</td><td>shares outstanding</td></tr><tr><td>2</td><td>balance january 1 2001</td><td>667085793</td><td>-94361099 ( 94361099 )</td><td>572724694</td></tr><tr><td>3</td><td>employee stock purchase plan</td><td>2013</td><td>1752833</td><td>1752833</td></tr><tr><td>4</td><td>shares granted to directors</td><td>2013</td><td>4800</td><td>4800</td></tr><tr><td>5</td><td>shares sold to optionees</td><td>8385</td><td>1399686</td><td>1408071</td></tr><tr><td>6</td><td>balance december 31 2001</td><td>667094178</td><td>-91203780 ( 91203780 )</td><td>575890398</td></tr><tr><td>7</td><td>employee stock purchase plan</td><td>2013</td><td>2677842</td><td>2677842</td></tr><tr><td>8</td><td>shares granted to directors</td><td>2013</td><td>3500</td><td>3500</td></tr><tr><td>9</td><td>shares sold to optionees</td><td>10490</td><td>2243400</td><td>2253890</td></tr><tr><td>10</td><td>acquisition of technoguide</td><td>2013</td><td>1347485</td><td>1347485</td></tr><tr><td>11</td><td>balance december 31 2002</td><td>667104668</td><td>-84931553 ( 84931553 )</td><td>582173115</td></tr><tr><td>12</td><td>employee stock purchase plan</td><td>2013</td><td>2464088</td><td>2464088</td></tr><tr><td>13</td><td>shares granted to directors</td><td>2013</td><td>3500</td><td>3500</td></tr><tr><td>14</td><td>shares sold to optionees</td><td>1320</td><td>1306305</td><td>1307625</td></tr><tr><td>15</td><td>balance december 31 2003</td><td>667105988</td><td>-81157660 ( 81157660 )</td><td>585948328</td></tr></table> see the notes to consolidated financial statements 39 / slb 2003 form 10-k .",
         "answers": [
             "divide(1347485, 582173115)",
-            "add(4800, 3500)\nadd(#0, 3500)"
+            "add(4800, 3500);add(#0, 3500)"
         ],
         "dialogue_break": [
             "what percentage of the shares outstanding did the the acquisition of technoguide account for?",
@@ -305,7 +305,7 @@
         "type": 3,
         "context": "adobe systems incorporated notes to consolidated financial statements ( continued ) we review our goodwill for impairment annually , or more frequently , if facts and circumstances warrant a review . we completed our annual impairment test in the second quarter of fiscal 2013 . we elected to use the step 1 quantitative assessment for our three reporting units 2014digital media , digital marketing and print and publishing 2014and determined that there was no impairment of goodwill . there is no significant risk of material goodwill impairment in any of our reporting units , based upon the results of our annual goodwill impairment test . we amortize intangible assets with finite lives over their estimated useful lives and review them for impairment whenever an impairment indicator exists . we continually monitor events and changes in circumstances that could indicate carrying amounts of our long-lived assets , including our intangible assets may not be recoverable . when such events or changes in circumstances occur , we assess recoverability by determining whether the carrying value of such assets will be recovered through the undiscounted expected future cash flows . if the future undiscounted cash flows are less than the carrying amount of these assets , we recognize an impairment loss based on any excess of the carrying amount over the fair value of the assets . we did not recognize any intangible asset impairment charges in fiscal 2013 , 2012 or 2011 . our intangible assets are amortized over their estimated useful lives of 1 to 14 years . amortization is based on the pattern in which the economic benefits of the intangible asset will be consumed or on a straight-line basis when the consumption pattern is not apparent . the weighted average useful lives of our intangible assets were as follows : weighted average useful life ( years ) . <table class='wikitable'><tr><td>1</td><td></td><td>weighted averageuseful life ( years )</td></tr><tr><td>2</td><td>purchased technology</td><td>6</td></tr><tr><td>3</td><td>customer contracts and relationships</td><td>10</td></tr><tr><td>4</td><td>trademarks</td><td>8</td></tr><tr><td>5</td><td>acquired rights to use technology</td><td>8</td></tr><tr><td>6</td><td>localization</td><td>1</td></tr><tr><td>7</td><td>other intangibles</td><td>3</td></tr></table> software development costs capitalization of software development costs for software to be sold , leased , or otherwise marketed begins upon the establishment of technological feasibility , which is generally the completion of a working prototype that has been certified as having no critical bugs and is a release candidate . amortization begins once the software is ready for its intended use , generally based on the pattern in which the economic benefits will be consumed . to date , software development costs incurred between completion of a working prototype and general availability of the related product have not been material . internal use software we capitalize costs associated with customized internal-use software systems that have reached the application development stage . such capitalized costs include external direct costs utilized in developing or obtaining the applications and payroll and payroll-related expenses for employees , who are directly associated with the development of the applications . capitalization of such costs begins when the preliminary project stage is complete and ceases at the point in which the project is substantially complete and is ready for its intended purpose . income taxes we use the asset and liability method of accounting for income taxes . under this method , income tax expense is recognized for the amount of taxes payable or refundable for the current year . in addition , deferred tax assets and liabilities are recognized for expected future tax consequences of temporary differences between the financial reporting and tax bases of assets and liabilities , and for operating losses and tax credit carryforwards . we record a valuation allowance to reduce deferred tax assets to an amount for which realization is more likely than not. .",
         "answers": [
-            "add(6, 10)\ndivide(#0, 2)",
+            "add(6, 10);divide(#0, 2)",
             "8",
             "subtract(100, 8)"
         ],
@@ -327,7 +327,7 @@
             "17",
             "divide(100, 17)",
             "multiply(376, ANS1)",
-            "divide(100, 26)\nmultiply(182, #0)"
+            "divide(100, 26);multiply(182, #0)"
         ],
         "dialogue_break": [
             "what percentage does the year-end 2015 balance represent in relation to the total proved reserves?",
@@ -348,7 +348,7 @@
         "answers": [
             "add(96454, 101321)",
             "103.698",
-            "multiply(1000, 103.698)\nadd(ANS1, #0)",
+            "multiply(1000, 103.698);add(ANS1, #0)",
             "divide(ANS3, 3)",
             "subtract(11766, 80258)",
             "divide(ANS5, 80258)"
@@ -375,7 +375,7 @@
         "context": "skyworks solutions , inc . notes to consolidated financial statements 2014 ( continued ) maintained a valuation allowance of $ 47.0 million . this valuation allowance is comprised of $ 33.6 million related to u.s . state tax credits , of which $ 3.6 million are state tax credits acquired from aati in fiscal year 2012 , and $ 13.4 million related to foreign deferred tax assets . if these benefits are recognized in a future period the valuation allowance on deferred tax assets will be reversed and up to a $ 46.6 million income tax benefit , and up to a $ 0.4 million reduction to goodwill may be recognized . the company will need to generate $ 209.0 million of future united states federal taxable income to utilize our united states deferred tax assets as of september 28 , 2012 . deferred tax assets are recognized for foreign operations when management believes it is more likely than not that the deferred tax assets will be recovered during the carry forward period . the company will continue to assess its valuation allowance in future periods . as of september 28 , 2012 , the company has united states federal net operating loss carry forwards of approximately $ 74.3 million , including $ 29.5 million related to the acquisition of sige , which will expire at various dates through 2030 and $ 28.1 million related to the acquisition of aati , which will expire at various dates through 2031 . the utilization of these net operating losses is subject to certain annual limitations as required under internal revenue code section 382 and similar state income tax provisions . the company also has united states federal income tax credit carry forwards of $ 37.8 million , of which $ 30.4 million of federal income tax credit carry forwards have not been recorded as a deferred tax asset . the company also has state income tax credit carry forwards of $ 33.6 million , for which the company has provided a valuation allowance . the united states federal tax credits expire at various dates through 2032 . the state tax credits relate primarily to california research tax credits which can be carried forward indefinitely . the company has continued to expand its operations and increase its investments in numerous international jurisdictions . these activities will increase the company 2019s earnings attributable to foreign jurisdictions . as of september 28 , 2012 , no provision has been made for united states federal , state , or additional foreign income taxes related to approximately $ 371.5 million of undistributed earnings of foreign subsidiaries which have been or are intended to be permanently reinvested . it is not practicable to determine the united states federal income tax liability , if any , which would be payable if such earnings were not permanently reinvested . the company 2019s gross unrecognized tax benefits totaled $ 52.4 million and $ 32.1 million as of september 28 , 2012 and september 30 , 2011 , respectively . of the total unrecognized tax benefits at september 28 , 2012 , $ 38.8 million would impact the effective tax rate , if recognized . the remaining unrecognized tax benefits would not impact the effective tax rate , if recognized , due to the company 2019s valuation allowance and certain positions which were required to be capitalized . there are no positions which the company anticipates could change within the next twelve months . a reconciliation of the beginning and ending amount of gross unrecognized tax benefits is as follows ( in thousands ) : unrecognized tax benefits . <table class='wikitable'><tr><td>1</td><td></td><td>unrecognized tax benefits</td></tr><tr><td>2</td><td>balance at september 30 2011</td><td>$ 32136</td></tr><tr><td>3</td><td>increases based on positions related to prior years</td><td>9004</td></tr><tr><td>4</td><td>increases based on positions related to current year</td><td>11265</td></tr><tr><td>5</td><td>decreases relating to settlements with taxing authorities</td><td>2014</td></tr><tr><td>6</td><td>decreases relating to lapses of applicable statutes of limitations</td><td>-25 ( 25 )</td></tr><tr><td>7</td><td>balance at september 28 2012</td><td>$ 52380</td></tr></table> page 114 annual report .",
         "answers": [
             "subtract(52.4, 32.1)",
-            "subtract(52380, 32136)\ndivide(#0, 32136)"
+            "subtract(52380, 32136);divide(#0, 32136)"
         ],
         "dialogue_break": [
             "what was the net change in unrecognized tax benefits from 2011 to 2012, in millions?",
@@ -391,7 +391,7 @@
         "context": "jpmorgan chase & co./2009 annual report 181 the following table shows the current credit risk of derivative receivables after netting adjustments , and the current liquidity risk of derivative payables after netting adjustments , as of december 31 , 2009. . <table class='wikitable'><tr><td>1</td><td>december 31 2009 ( in millions )</td><td>derivative receivables</td><td>derivative payables</td></tr><tr><td>2</td><td>gross derivative fair value</td><td>$ 1565518</td><td>$ 1519183</td></tr><tr><td>3</td><td>nettingadjustment 2013 offsetting receivables/payables</td><td>-1419840 ( 1419840 )</td><td>-1419840 ( 1419840 )</td></tr><tr><td>4</td><td>nettingadjustment 2013 cash collateral received/paid</td><td>-65468 ( 65468 )</td><td>-39218 ( 39218 )</td></tr><tr><td>5</td><td>carrying value on consolidated balance sheets</td><td>$ 80210</td><td>$ 60125</td></tr></table> in addition to the collateral amounts reflected in the table above , at december 31 , 2009 , the firm had received and posted liquid secu- rities collateral in the amount of $ 15.5 billion and $ 11.7 billion , respectively . the firm also receives and delivers collateral at the initiation of derivative transactions , which is available as security against potential exposure that could arise should the fair value of the transactions move in the firm 2019s or client 2019s favor , respectively . furthermore , the firm and its counterparties hold collateral related to contracts that have a non-daily call frequency for collateral to be posted , and collateral that the firm or a counterparty has agreed to return but has not yet settled as of the reporting date . at december 31 , 2009 , the firm had received $ 16.9 billion and delivered $ 5.8 billion of such additional collateral . these amounts were not netted against the derivative receivables and payables in the table above , because , at an individual counterparty level , the collateral exceeded the fair value exposure at december 31 , 2009 . credit derivatives credit derivatives are financial instruments whose value is derived from the credit risk associated with the debt of a third-party issuer ( the reference entity ) and which allow one party ( the protection purchaser ) to transfer that risk to another party ( the protection seller ) . credit derivatives expose the protection purchaser to the creditworthiness of the protection seller , as the protection seller is required to make payments under the contract when the reference entity experiences a credit event , such as a bankruptcy , a failure to pay its obligation or a restructuring . the seller of credit protection receives a premium for providing protection but has the risk that the underlying instrument referenced in the contract will be subject to a credit event . the firm is both a purchaser and seller of protection in the credit derivatives market and uses these derivatives for two primary purposes . first , in its capacity as a market-maker in the dealer/client business , the firm actively risk manages a portfolio of credit derivatives by purchasing and selling credit protection , pre- dominantly on corporate debt obligations , to meet the needs of customers . as a seller of protection , the firm 2019s exposure to a given reference entity may be offset partially , or entirely , with a contract to purchase protection from another counterparty on the same or similar reference entity . second , the firm uses credit derivatives to mitigate credit risk associated with its overall derivative receivables and traditional commercial credit lending exposures ( loans and unfunded commitments ) as well as to manage its exposure to residential and commercial mortgages . see note 3 on pages 156--- 173 of this annual report for further information on the firm 2019s mortgage-related exposures . in accomplishing the above , the firm uses different types of credit derivatives . following is a summary of various types of credit derivatives . credit default swaps credit derivatives may reference the credit of either a single refer- ence entity ( 201csingle-name 201d ) or a broad-based index , as described further below . the firm purchases and sells protection on both single- name and index-reference obligations . single-name cds and index cds contracts are both otc derivative contracts . single- name cds are used to manage the default risk of a single reference entity , while cds index are used to manage credit risk associated with the broader credit markets or credit market segments . like the s&p 500 and other market indices , a cds index is comprised of a portfolio of cds across many reference entities . new series of cds indices are established approximately every six months with a new underlying portfolio of reference entities to reflect changes in the credit markets . if one of the reference entities in the index experi- ences a credit event , then the reference entity that defaulted is removed from the index . cds can also be referenced against spe- cific portfolios of reference names or against customized exposure levels based on specific client demands : for example , to provide protection against the first $ 1 million of realized credit losses in a $ 10 million portfolio of exposure . such structures are commonly known as tranche cds . for both single-name cds contracts and index cds , upon the occurrence of a credit event , under the terms of a cds contract neither party to the cds contract has recourse to the reference entity . the protection purchaser has recourse to the protection seller for the difference between the face value of the cds contract and the fair value of the reference obligation at the time of settling the credit derivative contract , also known as the recovery value . the protection purchaser does not need to hold the debt instrument of the underlying reference entity in order to receive amounts due under the cds contract when a credit event occurs . credit-linked notes a credit linked note ( 201ccln 201d ) is a funded credit derivative where the issuer of the cln purchases credit protection on a referenced entity from the note investor . under the contract , the investor pays the issuer par value of the note at the inception of the transaction , and in return , the issuer pays periodic payments to the investor , based on the credit risk of the referenced entity . the issuer also repays the investor the par value of the note at maturity unless the reference entity experiences a specified credit event . in that event , the issuer is not obligated to repay the par value of the note , but rather , the issuer pays the investor the difference between the par value of the note .",
         "answers": [
             "multiply(65468, 1000000)",
-            "multiply(15.5, 1000000)\nmultiply(#0, 1000)",
+            "multiply(15.5, 1000000);multiply(#0, 1000)",
             "add(ANS1, ANS0)",
             "divide(1565518, 1519183)"
         ],
@@ -415,7 +415,7 @@
             "multiply(2, 1000)",
             "3170",
             "divide(ANS0, 3170)",
-            "multiply(2.5, 1000)\ndivide(#0, 3710)"
+            "multiply(2.5, 1000);divide(#0, 3710)"
         ],
         "dialogue_break": [
             "what was the total amount of the north american consumer packaging net sales in 2012, in millions?",
@@ -437,7 +437,7 @@
             "221",
             "3.35",
             "divide(ANS0, ANS1)",
-            "divide(221, 1000000)\nsubtract(3.35, #0)"
+            "divide(221, 1000000);subtract(3.35, #0)"
         ],
         "dialogue_break": [
             "in the year of 2011, by what amount did the operating cash flow fall short from the target one?",
@@ -458,7 +458,7 @@
         "answers": [
             "subtract(359.8, 540.1)",
             "divide(ANS0, 540.1)",
-            "multiply(4.15, 1000)\nsubtract(#0, 359.8)",
+            "multiply(4.15, 1000);subtract(#0, 359.8)",
             "divide(ANS2, 359.8)"
         ],
         "dialogue_break": [
@@ -479,7 +479,7 @@
         "context": "baker hughes , a ge company notes to consolidated and combined financial statements bhge 2017 form 10-k | 85 the total intrinsic value of rsus ( defined as the value of the shares awarded at the current market price ) vested and outstanding in 2017 was $ 17 million and $ 38 million , respectively . the total fair value of rsus vested in 2017 was $ 19 million . as of december 31 , 2017 , there was $ 98 million of total unrecognized compensation cost related to unvested rsus , which is expected to be recognized over a weighted average period of 2.5 years . note 12 . equity common stock we are authorized to issue 2 billion shares of class a common stock , 1.25 billion shares of class b common stock and 50 million shares of preferred stock each of which have a par value of $ 0.0001 per share . on july 3 , 2017 , each share of baker hughes common stock was converted into one share of class a common stock in the company . the number of class a common stock and class b common stock shares outstanding at december 31 , 2017 is 422 million and 707 million , respectively . we have not issued any preferred stock . ge owns all the issued and outstanding class b common stock . each share of class a and class b common stock and the associated membership interest in bhge llc form a paired interest . while each share of class b common stock has equal voting rights to a share of class a common stock , it has no economic rights , meaning holders of class b common stock have no right to dividends and any assets in the event of liquidation of the company . former baker hughes stockholders immediately after the completion of the transactions received a special one-time cash dividend of $ 17.50 per share paid by the company to holders of record of the company's class a common stock . in addition , during 2017 the company declared and paid regular dividends of $ 0.17 per share and $ 0.18 per share to holders of record of the company's class a common stock during the quarters ended september 30 , 2017 and december 31 , 2017 , respectively . the following table presents the changes in number of shares outstanding ( in thousands ) : class a common class b common . <table class='wikitable'><tr><td>1</td><td></td><td>class a common stock</td><td>class b common stock</td></tr><tr><td>2</td><td>balance at december 31 2016</td><td>2014</td><td>2014</td></tr><tr><td>3</td><td>issue of shares on business combination at july 3 2017</td><td>427709</td><td>717111</td></tr><tr><td>4</td><td>issue of shares upon vesting of restricted stock units ( 1 )</td><td>290</td><td>2014</td></tr><tr><td>5</td><td>issue of shares on exercises of stock options ( 1 )</td><td>256</td><td>2014</td></tr><tr><td>6</td><td>stock repurchase program ( 2 ) ( 3 )</td><td>-6047 ( 6047 )</td><td>-10126 ( 10126 )</td></tr><tr><td>7</td><td>balance at december 31 2017</td><td>422208</td><td>706985</td></tr></table> ( 1 ) share amounts reflected above are net of shares withheld to satisfy the employee's tax withholding obligation . ( 2 ) on november 2 , 2017 , our board of directors authorized bhge llc to repurchase up to $ 3 billion of its common units from the company and ge . the proceeds of this repurchase are to be used by bhge to repurchase class a common stock of the company on the open market , which if fully implemented would result in the repurchase of approximately $ 1.1 billion of class a common stock . the class b common stock of the company , that is paired with repurchased common units , was repurchased by the company at par value . the $ 3 billion repurchase authorization is the aggregate authorization for repurchases of class a and class b common stock together with its paired unit . bhge llc had authorization remaining to repurchase up to approximately $ 2.5 billion of its common units from bhge and ge at december 31 , 2017 . ( 3 ) during 2017 , we repurchased and canceled 6046735 shares of class a common stock for a total of $ 187 million . we also repurchased and canceled 10126467 shares of class b common stock from ge which is paired together with common units of bhge llc for $ 314 million. .",
         "answers": [
             "divide(422208, 706985)",
-            "multiply(1.25, 1000)\ndivide(707, #0)"
+            "multiply(1.25, 1000);divide(707, #0)"
         ],
         "dialogue_break": [
             "as of december 31, 2017, how much did the balance of class a common stock represent in relation to the one of class b common stock?",
