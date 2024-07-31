@@ -1,6 +1,8 @@
 from typing import Any, Dict, List
 from collections.abc import Hashable, Iterable
 
+from entry import Entry
+
 # A message from a conversation.
 # Each message is a dict with two keys:
 #   - "role": the agent who sent the message (this can either be the
@@ -13,10 +15,6 @@ type Conversation = List[Message]
 
 # An entry key uniquely identifies an entry
 type EntryKey = Hashable
-
-# An entry contains some context, a set of questions to answer, and
-# their model answers
-type Entry = Dict[str, Any]
 
 type Entries = Dict[EntryKey, Entry]
 
