@@ -70,10 +70,11 @@ class ConversationHandler:
         # a question index to allow the LLM to more easily refer to
         # specific answers, as well as the calculated value of the last
         # question's response
-        if self.exe_answers and not math.isnan(self.exe_answers[-1]):
-            prefix = f"Ok, so ANS{self.question_count-1} = {self.exe_answers[-1]}. Now the next question:\n"
-        else:
-            prefix = ""
+        prefix = ""
+        if self.exe_answers:
+            prev = self.exe_answers[-1]
+            if isinstance(prev, str) or not math.isnan(prev):
+                prefix = f"Ok, so ANS{self.question_count-1} = {prev}. Now the next question:\n"
         self.conversation.append({
             "role": "user",
             "content": f"{prefix}Q{self.question_count}: {question}\n{SUFFIX}"
