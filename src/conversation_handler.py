@@ -81,11 +81,7 @@ class ConversationHandler:
 
         # An answer will be generated in a "raw" form that will then
         # need to be processed to get a real output
-        try:
-            answer = self.client.generate(self.conversation)
-        except Exception as e:
-            self._log_new_error("N/A", e)
-            return float("nan"), self.err_log[-1]
+        answer = self.client.generate(self.conversation)
         
         # Add the response in "raw" form to the conversation to keep
         # the conversation history up-to-date so that the LLM can
