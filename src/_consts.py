@@ -11,6 +11,8 @@ OP_MAP = {
 _context1 = "<table class='wikitable'><tr><td>1</td><td>year</td><td>1993</td><td>1994</td><td>1995</td></tr><tr><td>2</td><td>revenue</td><td>£23,456</td><td>£43,219</td><td>£101,129</td></tr><tr><td>3</td><td>costs</td><td>£40,987</td><td>£47,231</td><td>£60,943</td></tr></table>"
 _context2 = "<table class='wikitable'><tr><td>customer</td><td>loan value (€)</td><td>interest rate (%)</td></tr><tr><td>1</td><td>2,014.45</td><td>9.27</td></tr><tr><td>2</td><td>23,015.13</td><td>9.11</td></tr><tr><td>3</td><td>1,095.42</td><td>8.77</td></tr><tr><td>4</td><td>13,732.56</td><td>10.10</td></tr></table>"
 
+SUFFIX = "Remember to only answer with a number from the text, or an operation with two arguments in the form operation(arg1, arg2)."
+
 # A collection of messages to pass as some initial context for the model
 INIT_MESSAGES = [
     {
