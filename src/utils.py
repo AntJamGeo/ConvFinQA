@@ -4,13 +4,13 @@ from typing import List
 
 from _consts import OP_MAP
 
-def is_program(answer):
+def is_operation(answer):
     return "(" in answer
 
-def equivalent_programs(program1, program2, exe_answers, rel_tol, abs_tol):
+def equivalent_operation(program1, program2, exe_answers, rel_tol, abs_tol):
     try:
-        op_1, arg1_1, arg2_1 = split_program(program1)
-        op_2, arg1_2, arg2_2 = split_program(program2)
+        op_1, arg1_1, arg2_1 = split_operation(program1)
+        op_2, arg1_2, arg2_2 = split_operation(program2)
         arg1_1 = process_arg(arg1_1, exe_answers)
         arg2_1 = process_arg(arg2_1, exe_answers)
         arg1_2 = process_arg(arg1_2, exe_answers)
@@ -66,7 +66,7 @@ def execute_answer(answer: str, exe_answers: List[float]) -> float:
     except ArgumentException:
         pass
 
-    op, arg1, arg2 = split_program(answer)
+    op, arg1, arg2 = split_operation(answer)
     arg1, arg2 = process_arg(arg1, exe_answers), process_arg(arg2, exe_answers)
 
     try:
@@ -78,7 +78,7 @@ def execute_answer(answer: str, exe_answers: List[float]) -> float:
 
     return exe_answer
 
-def split_program(answer: str):
+def split_operation(answer: str):
     if "(" not in answer:
         raise FormatException(
             "Non-float answer should be an operation but found no \"(\""
