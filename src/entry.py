@@ -1,7 +1,7 @@
 from typing import List
 from dataclasses import dataclass
 
-from utils import is_operation, equivalent_operation
+from utils import is_operation, equivalent_operation, backward_subtraction
 
 @dataclass
 class Entry:
@@ -21,3 +21,7 @@ class Entry:
     def equivalent_operations(self, question_number, program, rel_tol, abs_tol):
         expected = self.answers[question_number]
         return equivalent_operation(expected, program, self.exe_answers, rel_tol, abs_tol)
+
+    def backward_subtraction(self, question_number, program, rel_tol, abs_tol):
+        expected = self.answers[question_number]
+        return backward_subtraction(expected, program, self.exe_answers, rel_tol, abs_tol)

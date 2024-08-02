@@ -55,6 +55,10 @@ class Analyser:
             o_acc = self.operation_accuracy([i])
             print(f"\033[1mEntry {i}\033[0m")
             print("----------------------------------------")
+            print("\033[1;31mQuestions\033[0m")
+            for q in entry.questions:
+                print(q)
+            print("----------------------------------------")
             print("\033[1;34mComputations\033[0m")
             print(f"Expected : {entry.exe_answers}")
             print(f"Generated: {conv.exe_answers}")
@@ -452,6 +456,46 @@ class Analyser:
         for acc_item in accuracies.values():
             acc_item.calculate_acc()
         return accuracies
+
+    def backward_subtraction(
+        self,
+        indices: Optional[EntryKeyCollection] = None,
+        rel_tol: float = 0.001,
+        abs_tol: float = 0.0,
+    ) -> Dict[str, Accuracy]:
+        """Mark subtractions as "correct" if the arguments are reversed.
+
+        This function goes through all subtraction operations and views
+        only the ones where the correct arguments are placed in reverse
+        order as correct, to test how often the LLM puts the arguments
+        in the wrong order.
+
+        Returns:
+            accuracy (Accuracy): An accuracy object, containing:
+                    * `score`: total number reversed subtraction
+                    * `total`: total number of subtraction questions
+                    * `accuracy`: `score` / `total`
+        """
+        indices = self._get_indices(indices)
+
+        accuracy = Accuracy()
+        for i in indices:
+            if self._index_absent(i):
+                continue
+            entry = self.entries[i]
+            operations = entry.answers
+            answers = self.conversations[i].answers
+            for question_number, (answer, operation)  in enumerate(zip(answers, operations)):
+                if not entry.is_operation(question_number):
+                    continue
+                op = operation.split("(")[0]
+                if op != "subtract":
+                    continue
+                if entry.backward_subtraction(question_number, answer, rel_tol, abs_tol):
+                    accuracy.score += 1
+                accuracy.total += 1
+        accuracy.calculate_acc()
+        return accuracy
 
     def _get_indices(self, indices):
         if indices is None:

@@ -29,6 +29,23 @@ def equivalent_operation(program1, program2, exe_answers, rel_tol, abs_tol):
     else:
         raise AssertionError("should be unreachable")
 
+def backward_subtraction(program1, program2, exe_answers, rel_tol, abs_tol):
+    try:
+        op_1, arg1_1, arg2_1 = split_operation(program1)
+        op_2, arg1_2, arg2_2 = split_operation(program2)
+        arg1_1 = process_arg(arg1_1, exe_answers)
+        arg2_1 = process_arg(arg2_1, exe_answers)
+        arg1_2 = process_arg(arg1_2, exe_answers)
+        arg2_2 = process_arg(arg2_2, exe_answers)
+    except Exception as e:
+        return False
+    if op_1 != op_2:
+        return False
+    if op_1 == "subtract":
+        return equivalent_val(arg1_1, arg2_2, rel_tol, abs_tol) and equivalent_val(arg2_1, arg1_2, rel_tol, abs_tol)
+    else:
+        raise AssertionError("should be unreachable")
+
 def equivalent_val(expected, got, rel_tol=0.01, abs_tol=0):
     if isinstance(expected, numbers.Number) and isinstance(got, numbers.Number):
         return math.isclose(expected, got, rel_tol=rel_tol, abs_tol=abs_tol)
