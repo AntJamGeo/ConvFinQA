@@ -6,7 +6,7 @@
             "35",
             "33",
             "subtract(35, 33)",
-            "add(35, 33);divide(#0, const_2)"
+            "add(35, 33);divide(#0, 2)"
         ],
         "dialogue_break": [
             "what was, in millions the total of commercial mortgage recourse obligations in the end of 2014?",
